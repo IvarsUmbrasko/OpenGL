@@ -1,0 +1,30 @@
+{
+  "configurations": [
+    {
+      "name": "OpenGL + GL3W",
+      "includePath": [
+        "${workspaceFolder}/**",
+        "C:/gl3w/include",
+        "C:/glfw-3.4.bin.WIN64/include"
+      ],
+      "defines": [
+        "_DEBUG",
+        "UNICODE",
+        "_UNICODE"
+      ],
+      "compilerPath": "C:/msys64/ucrt64/bin/g++.exe",   // or mingw64 if you prefer
+      "cStandard": "c17",
+      "cppStandard": "c++17",
+      "intelliSenseMode": "windows-gcc-x64",
+      "browse": {
+        "path": [
+          "C:/gl3w/include",
+          "C:/glfw-3.4.bin.WIN64/include",
+          "${workspaceFolder}"
+        ],
+        "limitSymbolsToIncludedHeaders": true
+      }
+    }
+  ],
+  "version": 4
+}
