@@ -12,6 +12,7 @@
                 "C:/gl3w/src/gl3w.c",
                 "-o",
                 "${workspaceFolder}/main.exe",
+                "-I", "${workspaceFolder}/include",
                 "-I", "C:/gl3w/include",
                 "-I", "C:/glfw-3.4.bin.WIN64/include",
                 "-L", "C:/glfw-3.4.bin.WIN64/lib-mingw-w64",

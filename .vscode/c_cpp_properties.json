@@ -5,14 +5,15 @@
       "includePath": [
         "${workspaceFolder}/**",
         "C:/gl3w/include",
-        "C:/glfw-3.4.bin.WIN64/include"
+        "C:/glfw-3.4.bin.WIN64/include",
+        "${workspaceFolder}/include"
       ],
       "defines": [
         "_DEBUG",
         "UNICODE",
         "_UNICODE"
       ],
-      "compilerPath": "C:/msys64/ucrt64/bin/g++.exe",   // or mingw64 if you prefer
+      "compilerPath": "C:/msys64/ucrt64/bin/g++.exe",  
       "cStandard": "c17",
       "cppStandard": "c++17",
       "intelliSenseMode": "windows-gcc-x64",
