@@ -55,9 +55,6 @@ int init(void)
   glBindBuffer(GL_ARRAY_BUFFER, Buffers[ArrayBuffer]);
   glVertexAttribPointer(vPosition, 2, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(0));
   glEnableVertexAttribArray(vPosition);
-
-
-
 }
 
 int main(int argc, char **argv)
