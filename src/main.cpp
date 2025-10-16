@@ -15,7 +15,7 @@ enum VAO_IDs
 
 enum Buffer_IDs
 {
-  ArrayBuffer,
+  ArrayBuffer, 
   NumBuffers
 };
 
@@ -28,7 +28,7 @@ GLuint VAOs[NumVAOs];
 GLuint Buffers[NumBuffers];
 const GLuint NumVertices = 6;
 
-int init(void)
+void init()
 {
   static const GLfloat vertices[NumVertices][2]{
       {-0.90, -0.90},
@@ -41,15 +41,16 @@ int init(void)
   glCreateVertexArrays(NumVAOs, VAOs);
 
   glCreateBuffers(NumBuffers, Buffers);
-  glNamedBufferStorage(Buffers[NumBuffers], sizeof(vertices), vertices, 0);
+  glNamedBufferStorage(Buffers[ArrayBuffer], sizeof(vertices), vertices, 0);
 
   ShaderInfo shaders[] = {
-      {GL_VERTEX_SHADER, "triangles.vert"},
-      {GL_FRAGMENT_SHADER, "triangles.frag"},
+      {GL_VERTEX_SHADER, "res/shaders/triangles.vert"},
+      {GL_FRAGMENT_SHADER, "res/shaders/triangles.frag"},
       {GL_NONE, NULL}};
 
   GLuint program = LoadShaders(shaders);
   glUseProgram(program);
+
   glGenVertexArrays(NumVAOs, VAOs);
   glBindVertexArray(VAOs[Triangles]);
   glBindBuffer(GL_ARRAY_BUFFER, Buffers[ArrayBuffer]);
@@ -57,14 +58,27 @@ int init(void)
   glEnableVertexAttribArray(vPosition);
 }
 
+void display()
+{
+  static const float black[] = {0.0f, 0.0f, 0.0f, 0.0f};
+  glClearBufferfv(GL_COLOR, 0, black);
+  glBindVertexArray(VAOs[Triangles]);
+  glDrawArrays(GL_TRIANGLES, 0, NumVertices);
+}
+
 int main(int argc, char **argv)
 {
   glfwInit();
   GLFWwindow *window = glfwCreateWindow(640, 500, "OpenGL", NULL, NULL);
+
+  glfwMakeContextCurrent(window);
   gl3wInit();
+
+  init();
 
   while (!glfwWindowShouldClose(window))
   {
+    display();
     glfwSwapBuffers(window);
     glfwPollEvents();
   }
